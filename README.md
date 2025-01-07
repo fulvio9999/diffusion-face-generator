@@ -24,6 +24,7 @@ The repository includes:
 
 ## 🗂️ Repository Structure
 
+- **`classify/`**: Contains the script python `classify.py` for evaluating the generated images. Note: The pre-trained model for classify (`model_0605.pth`) is not included due to its size, so please contact me if you wish to replicate the results.
 - **`dataset/`**: Contains the training data for the model (face images), along with the corresponding label file.
 - **`docs/`**: Contains the project report and PowerPoint presentation.
 - **`models/`**: This folder stores the model's parameter checkpoints, allowing you to resume training later. Note: The pre-trained model is not included due to its size, so please contact me if you wish to replicate the results.
@@ -80,8 +81,9 @@ python main.py -train
 * Every 10 epochs, 12 images will be saved to `settings.RESULTS_PATH` for both the model with and without EMA.
 * Training will be performed on the images in the directory specified by `settings.DATASET_PATH`. The training file is located in this folder and is named `settings.TRAIN_FILE`.
 
+---
 
-## 🔬 Testing
+## 🖌️ Generation
 
 To generate 500 images from the trained model, run the following command:
 
@@ -91,6 +93,26 @@ python main.py -test [path_output]
 
 * `[path_output]` is the path where the 500 generated images will be saved. This argument is optional; if omitted, the default path `settings.OUTPUT_PATH` will be used.
 * The test file must be located at the path specified by `settings.TEST_FILE`. This file contains the labels used for generating the faces.
+
+---
+
+## 🔬 Testing
+
+To evaluate the generated images, you can use the provided script `classify.py`. This script classifies the images and provides a score based on how well they resemble real images according to a pre-trained model.
+
+#### Steps to Evaluate:
+1. Ensure that you have generated the images using the testing procedure described earlier (`python main.py -test [path_output]`).
+2. Navigate to the directory where the images are saved.
+3. Run the following command to evaluate the generated images:
+
+   ```bash
+   python classify.py path/to/image/folder
+   ```
+
+Replace `path/to/image/folder` with the actual path to the folder containing the generated images.
+
+### Important Note:
+The classify.py script requires a pre-trained classifier model (`model_0605.pth`) to evaluate the generated images. Due to space limitations, the pre-trained model is not included in the repository. If you wish to replicate the evaluation process, please contact me to obtain the pre-trained classifier model.
 
 ---
 
