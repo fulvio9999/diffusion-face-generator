@@ -54,11 +54,11 @@ The repository includes:
    ```
 2. Create the virtual environment via conda
     ```bash
-    conda create -n ganomaly python=3.7
+    conda create -n diffusion_model python=3.7
     ```
 3. Activate the virtual environment
     ```bash
-    conda activate ganomaly
+    conda activate diffusion_model
     ```
 3. Install the dependencies
    ```bash
